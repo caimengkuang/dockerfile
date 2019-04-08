@@ -1,0 +1,11 @@
+@startuml
+前端 -> openAPI : user_id
+openAPI -> 优惠券服务: user_id
+优惠券服务 -> 用户服务 : user_id
+用户服务 -> 用户服务: 根据user_id获取member_id
+用户服务 -> 用户服务: 根据member_id获取所有\n关联的user_id集合
+用户服务 -> 优惠券服务: 关联的user_id集合
+优惠券服务 -> 优惠券服务: 根据user_id集合\n获取所有的的优惠券
+优惠券服务 -> openAPI : 所有优惠券
+openAPI -> 前端 : 所有优惠券
+@enduml
